@@ -45,11 +45,7 @@ function Header({ theme: initialTheme, className, ...delegated }) {
       <Logo />
 
       <div className={styles.actions}>
-        <a
-          href="http://localhost:3000/feed.xml"
-          rel="noreferrer"
-          target="_blank"
-        >
+        <a href="feed.xml" rel="noreferrer" target="_blank">
           <button className={styles.action}>
             <Rss
               size="1.5rem"

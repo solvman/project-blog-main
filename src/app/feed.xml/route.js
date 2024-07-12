@@ -1,3 +1,4 @@
+import { URL } from "@/constants";
 import { getBlogPostList } from "@/helpers/file-helpers";
 import RSS from "rss";
 
@@ -6,8 +7,8 @@ export async function GET() {
     title: "Bits & Bytes",
     description: "Bits & Bytes Blog",
     generator: "RSS for Node and Next.js",
-    feed_url: "http://localhost:3000/feed.xml",
-    site_url: "http://localhost:3000",
+    feed_url: `${URL}/feed.xml`,
+    site_url: URL,
     language: "en-US",
     pubDate: new Date().toUTCString(),
     ttl: 60,
@@ -17,11 +18,10 @@ export async function GET() {
 
   if (allPosts) {
     allPosts.map((post) => {
-      console.log(post);
       feed.item({
         title: post.title,
         description: post.abstract,
-        url: `http://localhost:3000/${post.slug}`,
+        url: `${URL}/${post.slug}`,
         publishedOn: post.publishedOn,
       });
     });
